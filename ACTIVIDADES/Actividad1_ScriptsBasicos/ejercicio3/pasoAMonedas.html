@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paso a Monedas</title>
+  </head>
+  <body>
+    <h1>Paso a Monedas</h1>
+    <input
+      type="text"
+      id="cantidadInput"
+      placeholder="Introduce una cantidad en euros"
+      style="width: 200px; height: 30px"
+    />
+    <button onclick="convertir()">Convertir</button>
+
+    <script>
+      let cajaMonedas = [5, 5, 5, 5, 5, 5, 5, 5]; // Si inicialmente tenemos 5 monedas de cada tipo
+
+      function pasoAMonedas(cantidad) {
+        const valoresMonedas = [200, 100, 50, 20, 10, 5, 2, 1]; //en centimos
+        const resultado = [0, 0, 0, 0, 0, 0, 0, 0];
+
+        // Convertir la cantidad a céntimos
+        cantidad = cantidad * 100;
+
+        for (let i = 0; i < valoresMonedas.length; i++) {
+          const moneda = valoresMonedas[i];
+          const cantidadMonedas = Math.floor(cantidad / moneda);
+
+          if (cantidadMonedas > cajaMonedas[i]) {
+            // No hay suficientes monedas disponibles
+            return null;
+          }
+
+          resultado[i] = cantidadMonedas;
+          cantidad -= cantidadMonedas * moneda;
+        }
+
+        // Actualizar la cantidad de monedas en cajaMonedas
+        for (let i = 0; i < valoresMonedas.length; i++) {
+          cajaMonedas[i] -= resultado[i];
+        }
+
+        return resultado;
+      }
+
+      function imprimirMonedas(resultado) {
+        if (resultado === null) {
+          alert("No hay suficientes monedas disponibles para la conversión.");
+          return;
+        }
+
+        const centimos = [
+          "2 euros",
+          "1 euro",
+          "50 céntimos",
+          "20 céntimos",
+          "10 céntimos",
+          "5 céntimos",
+          "2 céntimos",
+          "1 céntimo",
+        ];
+        let mensaje = "Resultado:\n";
+
+        for (let i = 0; i < resultado.length; i++) {
+          const monedaCantidad = resultado[i];
+          const monedaDenominacion = centimos[i];
+
+          mensaje += `Posición ${
+            i + 1
+          }: ${monedaCantidad} monedas de ${monedaDenominacion}\n`;
+        }
+
+        alert(mensaje);
+      }
+
+      function convertir() {
+        const cantidadInput = document.getElementById("cantidadInput").value;
+        const cantidad = parseFloat(cantidadInput);
+
+        if (!isNaN(cantidad)) {
+          const resultado = pasoAMonedas(cantidad);
+          imprimirMonedas(resultado);
+        } else {
+          alert("Por favor, introduzca un número válido.");
+        }
+      }
+    </script>
+  </body>
+</html>

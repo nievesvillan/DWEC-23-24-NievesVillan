@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numero digitos</title>
+
+    <script>
+      function numeroDigitos(numero) {
+        // si el número es 0
+        if (numero === 0) {
+          return 1;
+        }
+
+        // valor absoluto para números negativos
+        numero = Math.abs(numero);
+
+        let contador = 0;
+
+        while (numero >= 1) {
+          // Dividir el número por 10 y reducirlo en un dígito
+          numero = Math.floor(numero / 10);
+          contador++;
+        }
+
+        return contador;
+      }
+
+      alert(numeroDigitos(318)); // 3
+      alert(numeroDigitos(-314569)); // 6
+    </script>
+  </head>
+  <body></body>
+</html>
