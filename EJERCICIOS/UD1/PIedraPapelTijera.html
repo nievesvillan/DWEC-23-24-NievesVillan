@@ -1,0 +1,44 @@
+<!-- Crea dos variables p1 y p2 que representen las jugadas del jugador 1 y jugador 2 
+    (String que puede ser "Piedra", "Papel" o "Tijera") 
+Muestra el resultado teniendo en cuenta que:
+- Piedra gana sobre Tijera, Tijera gana sobre Papel, Papel gana sobre Piedra
+Por lo que el programa tendrá tres posibles salidas: gana p1, gana p2, empate-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Piedra, papel o tijera</title>
+
+    <script>
+      let p1 = "Piedra";
+      let p2 = "Papel";
+      var resultado = ["Gana el jugador 1", "Gana el jugador 2", "Empate"];
+
+      if (p1 === p2) {
+        resultado = resultado[2];
+      } else if (
+        (p1 === "Piedra" && p2 === "Tijeras") ||
+        (p1 === "Papel" && "Piedra") ||
+        (p1 === "Tijeras" && p2 === "Papel")
+      ) {
+        resultado = resultado[0]; //gana p1
+      } else {
+        resultado = resultado[1]; //gana p2
+      }
+
+      alert(resultado);
+
+      function ppt(p1, p2) {
+        //algoritmo
+        return resultado;
+      }
+      ppt("Piedra", "Papel");
+      //   “Rescata” el código de la Parte 1 y crea una función que reciba
+      // como parámetros las jugadas de los dos jugadores y devuelva el resultado del combate
+    </script>
+  </head>
+  <body></body>
+</html>

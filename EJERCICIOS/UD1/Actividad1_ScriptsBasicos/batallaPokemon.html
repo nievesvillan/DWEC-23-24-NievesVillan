@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Batalla Pokemon</title>
+
+    <script>
+      const efectividad = {
+        Fuego: {
+          Hierba: 2, //súper efectivo
+          Agua: 0.5, //no muy efectivo
+          Electricidad: 1, //neutral
+        },
+        Hierba: {
+          Fuego: 0.5,
+          Agua: 2,
+          Electricidad: 1,
+        },
+        Agua: {
+          Fuego: 2,
+          Hierba: 0.5,
+          Electricidad: 1,
+        },
+        Electricidad: {
+          Fuego: 1,
+          Hierba: 1,
+          Agua: 2,
+        },
+      };
+
+    
+
+      function calculaPupa(ataque, defensa, potenciaAtaque, defensaAtaque) {
+        let eficiencia = efectividad[ataque][defensa];
+        return "El daño es: " + (50 * (potenciaAtaque / defensaAtaque) * eficiencia);
+      }
+
+      console.log(calculaPupa("Hierba", "Fuego", 80, 60));
+
+    </script>
+  </head>
+  <body></body>
+</html>

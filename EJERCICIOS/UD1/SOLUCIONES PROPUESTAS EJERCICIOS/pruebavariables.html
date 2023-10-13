@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<script>
+      {  let nombre = "Manuel";
+        let apellido = "García";
+        let edadComienzo = 20;
+        let nCursos = 2;
+
+        console.log( "nombre->"+typeof nombre + ", edad al comienzo->" + typeof edadComienzo); 
+
+        console.log(nombre + "\n" + apellido);
+        console.log("Edad en la titulación: "+ (edadComienzo + nCursos));
+    }
+    {
+        let nombre = prompt("Introduce tu nombre");
+        let apellido = prompt("Introduce tu apellido");
+        let edadComienzo = parseInt(prompt("Introduce tu edad al comezar el ciclo"));
+        let nCursos = parseInt(prompt("Introduce el número de cursos hasta titular"));
+
+        console.log( "nombre->"+typeof nombre + ", edad al comienzo ->" + typeof edadComienzo); 
+
+        console.log(nombre + "\n" + apellido);
+        console.log("Edad en la titulación: "+ (edadComienzo + nCursos));
+    }
+    </script>
+</head>
+
+<body>
+</body>
+</html>

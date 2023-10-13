@@ -1,0 +1,33 @@
+<!-- EJERCICIO PROPUESTO // Define un array numérico formado por números del 1
+al 9. // El script debería comprobar si hay algún número fuera de su posición,
+informando SOLO del primer caso que se encuentre. // Por ejemplo, en el array
+[1,2,3,9,5,6,7,8,9] se debería obtener el mensaje // "Error en la posición 3,
+hay un 9 cuando se esperaba un 4". // En caso de que todos los elementos estén
+en la posición correcta, se mostrará un mensaje indicativo. // Los mensajes se
+mostrarán por consola. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prueba Arrays</title>
+
+    <script>
+      var numeros = [1, 2, 3, 7, 5, 6, 7, 8, 9];
+      var esCorrecto = true;
+      var respuesta = "";
+
+      for (let index = 0; index < numeros.length; index++) {
+        if (index + 1 === numeros[index]) {
+          esCorrecto;
+        }
+      }
+      esCorrecto
+        ? alert("La serie es correcta")
+        : alert("La serie no es correcta");
+    </script>
+  </head>
+  <body></body>
+</html>
